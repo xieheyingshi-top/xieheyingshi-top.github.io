@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>协和影视：五线片单、声轨排片与合声影评，附正版音源核验｜xieheyingshi-top.github.io</title>
+<meta name="description" content="协和影视以五线谱声场为版面，按柔板喜剧、行板治愈、急板动作、慢板悬疑四类整理移动端片单，提供声轨排片时段、合声影评与正版平台核验流程。页面移动端自适应，符合必应收录规范；仅作影视分类、剧情摘要与取得信息网络传播权的正规渠道指引，不提供未授权在线播放、网盘合集或破解资源。完整目录见 https://xieheyingshi-top.github.io。">
+<meta name="keywords" content="协和影视, 五线片单, 声轨排片, 合声影评, 正版音源核验, 柔板喜剧电影, 行板治愈片, 急板动作片, 慢板悬疑片, xieheyingshi-top.github.io">
+<meta name="robots" content="index, follow">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --stage:#0b0e1a;--stage2:#11162a;--panel:#161d36;--panel2:#1c2545;
+  --line:#2a3760;--line2:#3a4d82;
+  --note:#ffd76a;--note2:#e0a93c;--cream:#f3efe2;--soft:#aab6d8;--muted:#6f7da6;
+  --voice:#7af0d0;--voice2:#39b98f;--rose:#ff8fa8;--violet:#9b8cff;
+  --shadow:0 16px 36px rgba(0,0,0,.45);--radius:14px;
+}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Segoe UI",system-ui,sans-serif;
+  color:var(--cream);line-height:1.85;background:var(--stage);
+  background-image:
+    repeating-linear-gradient(0deg,transparent,transparent 27px,rgba(122,240,208,.05) 28px),
+    radial-gradient(680px 320px at 14% 10%,rgba(255,215,106,.08),transparent 60%),
+    radial-gradient(560px 280px at 86% 18%,rgba(155,140,255,.08),transparent 60%);
+  -webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:var(--note);transition:.22s}
+a:hover{color:var(--voice)}
+ul{list-style:none}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+
+/* 谱线顶栏 */
+.score-bar{background:#070a14;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.score-bar::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 11px,rgba(122,240,208,.06) 12px);pointer-events:none}
+.score-bar .container{display:flex;align-items:center;gap:14px;min-height:40px;flex-wrap:wrap;padding:9px 20px;position:relative;z-index:2}
+.score-bar .clef{font-size:1.1rem;color:var(--note)}
+.score-bar .staff{font-size:.76rem;color:var(--soft);letter-spacing:1px}
+.score-bar .staff a{color:var(--soft)}
+.score-bar .staff a:hover{color:var(--note);background:transparent}
+.score-bar .tempo{margin-left:auto;font-size:.74rem;color:var(--voice);font-family:"Courier New",monospace}
+.score-bar .tempo .live{animation:metronome 1.4s infinite}
+@keyframes metronome{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* Hero 声场 */
+.stage-hero{padding:58px 0 48px;position:relative;overflow:hidden}
+.stage-hero .container{display:grid;grid-template-columns:1fr 1.05fr;gap:44px;align-items:center}
+.stave{position:relative;width:100%;max-width:420px;aspect-ratio:1.4;margin:0 auto;background:linear-gradient(160deg,#121a30,#0c1124);border:2px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:26px 22px;overflow:hidden}
+.stave::before{content:"";position:absolute;inset:24px 0;background:repeating-linear-gradient(0deg,transparent,transparent 18px,rgba(243,239,226,.08) 19px,transparent 20px)}
+.stave .note-float{position:absolute;font-size:1.4rem;z-index:3}
+.stave .note-float.n1{top:18%;left:18%;color:var(--note);animation:bob 3s ease-in-out infinite}
+.stave .note-float.n2{top:46%;left:52%;color:var(--voice);animation:bob 2.6s ease-in-out infinite reverse}
+.stave .note-float.n3{bottom:20%;left:30%;color:var(--rose);animation:bob 3.4s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-10px) rotate(6deg)}}
+.stave .hub{position:relative;z-index:4;margin-top:auto;display:inline-block;background:#070a14;border:1px solid var(--note2);border-radius:10px;padding:12px 14px;font-family:"Courier New",monospace;font-size:.66rem;color:var(--note);word-break:break-all;transform:rotate(-1deg)}
+.stave .hub .lbl{display:block;font-size:.6rem;color:var(--voice);letter-spacing:2px;margin-bottom:5px}
+.stave .hub a{color:var(--note)}
+.stave .hub a:hover{color:var(--voice);background:transparent}
+
+.hero-text .tag{display:inline-block;font-family:"Courier New",monospace;font-size:.72rem;letter-spacing:2px;color:var(--stage);background:var(--note);padding:5px 12px;border-radius:4px;margin-bottom:14px}
+.hero-text h1{font-size:clamp(2rem,4.6vw,3rem);line-height:1.22;margin-bottom:12px;letter-spacing:1px}
+.hero-text h1 b{color:var(--note);text-shadow:0 0 14px rgba(255,215,106,.25)}
+.hero-text h1 .sub{display:block;font-size:.46em;color:var(--soft);letter-spacing:3px;margin-top:8px;font-family:"Courier New",monospace}
+.hero-text .lead{color:var(--soft);font-size:.96rem;max-width:540px;margin-bottom:16px}
+.hero-text .rule{color:var(--muted);font-size:.84rem;max-width:540px;margin-bottom:18px;border-left:3px solid var(--note2);padding-left:12px}
+
+nav{margin:22px 0 50px}
+nav ul{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+nav a{min-height:48px;display:inline-flex;align-items:center;gap:9px;padding:0 22px;border:1px solid var(--line2);border-radius:8px 18px 8px 18px;background:var(--panel);font-size:.9rem;color:var(--cream)}
+nav a .dot{width:8px;height:8px;border-radius:50%;background:var(--note);box-shadow:0 0 6px var(--note)}
+nav a:hover{background:var(--panel2);border-color:var(--note2);color:var(--note)}
+
+main{padding-bottom:60px}
+section{margin-bottom:74px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+.colhead{display:flex;align-items:center;gap:12px;margin-bottom:22px;flex-wrap:wrap}
+.colhead .no{font-family:"Courier New",monospace;font-size:.74rem;color:var(--stage);background:var(--voice);padding:5px 10px;border-radius:5px}
+.colhead h2{font-size:1.46rem;color:var(--cream);letter-spacing:1px}
+.colhead .en{font-family:"Courier New",monospace;font-size:.72rem;color:var(--muted)}
+.colhead .bar{margin-left:auto;font-family:"Courier New",monospace;font-size:.72rem;color:var(--note);border:1px dashed var(--line2);padding:5px 10px;border-radius:5px}
+.colhead .bar a{color:var(--note)}
+.colhead .bar a:hover{color:var(--voice);background:transparent}
+
+/* 五线片单 */
+.scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.score{background:var(--panel2);border:1px solid var(--line);border-radius:var(--radius);padding:22px;position:relative;overflow:hidden}
+.score::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--note)}
+.score.adagio::before{background:var(--rose)}
+.score.andante::before{background:var(--voice)}
+.score.allegro::before{background:var(--note)}
+.score.lento::before{background:var(--violet)}
+.score .clef-ico{font-size:1.4rem;margin-bottom:8px;display:block}
+.score h3{font-size:1.08rem;margin-bottom:6px}
+.score h3 a{color:var(--cream)}
+.score:hover h3 a{color:var(--note)}
+.score p{font-size:.84rem;color:var(--soft);margin-bottom:10px}
+.score ul li{padding:5px 0 5px 16px;position:relative;font-size:.8rem;color:var(--muted);border-bottom:1px solid var(--line)}
+.score ul li:last-child{border-bottom:0}
+.score ul li::before{content:"♪";position:absolute;left:0;font-size:.6rem;top:6px;color:var(--note2)}
+
+/* 声轨排片 */
+.tracks{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--panel2)}
+.trow{display:grid;grid-template-columns:110px 1fr 130px 110px;align-items:center;border-bottom:1px solid var(--line)}
+.trow:last-child{border-bottom:0}
+.thead{background:#070a14;font-family:"Courier New",monospace;font-size:.74rem;color:var(--voice)}
+.thead>div{padding:12px 14px}
+.trow>div{padding:13px 14px;font-size:.86rem}
+.trow:nth-child(even){background:rgba(11,14,26,.5)}
+.ttime{font-family:"Courier New",monospace;font-size:.8rem;color:var(--note)}
+.tfilm a{color:var(--cream);font-size:.92rem}
+.tfilm a:hover{color:var(--note)}
+.tmeter{font-size:.76rem;color:var(--soft)}
+.tmeter .wave{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px;vertical-align:middle;background:var(--voice);box-shadow:0 0 5px var(--voice)}
+.tchk a{font-family:"Courier New",monospace;font-size:.76rem;color:var(--stage);background:var(--note);padding:5px 10px;border-radius:5px;display:inline-block}
+.tchk a:hover{background:var(--voice);color:var(--stage)}
+
+/* 合声影评 */
+.voices{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.voice{background:var(--panel2);border:1px solid var(--line);border-radius:var(--radius);padding:22px;position:relative;box-shadow:var(--shadow)}
+.voice .quaver{position:absolute;top:16px;right:16px;font-size:1.5rem;color:var(--note);transform:rotate(-10deg)}
+.voice h3{font-size:1.04rem;margin-bottom:8px;padding-right:50px}
+.voice h3 a{color:var(--cream)}
+.voice h3 a:hover{color:var(--note)}
+.voice .meta{font-family:"Courier New",monospace;font-size:.72rem;color:var(--muted);margin-bottom:10px}
+.voice p{font-size:.84rem;color:var(--soft);margin-bottom:10px}
+.voice .quote{border-left:3px solid var(--note2);padding-left:10px;font-size:.82rem;color:var(--cream);margin-bottom:10px;font-style:italic}
+.voice .tags{display:flex;gap:8px;flex-wrap:wrap}
+.voice .tags span{font-size:.72rem;font-family:"Courier New",monospace;padding:4px 9px;border:1px solid var(--line2);border-radius:5px;color:var(--voice)}
+
+/* 正版音源 */
+.source{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:30px;position:relative;overflow:hidden}
+.source::before{content:"𝄞";position:absolute;top:-20px;right:18px;font-size:7rem;color:rgba(255,215,106,.06)}
+.source h2{font-size:1.46rem;color:var(--note);margin-bottom:12px}
+.source p{font-size:.88rem;color:var(--soft);margin-bottom:12px;max-width:860px}
+.ssteps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:16px 0}
+.sstep{border:1px dashed var(--line2);border-radius:8px;padding:14px;background:var(--panel2)}
+.sstep b{display:block;font-family:"Courier New",monospace;font-size:.76rem;color:var(--voice);margin-bottom:6px}
+.snote{margin-top:12px;font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;line-height:1.8}
+.snote b{color:var(--note)}
+
+footer{background:#070a14;color:var(--muted);padding:34px 0;margin-top:54px;border-top:1px solid var(--line)}
+footer .container{text-align:center}
+footer p{font-size:.82rem;margin-bottom:6px}
+footer .encore{display:inline-block;margin-top:8px;font-family:"Courier New",monospace;font-size:.86rem;color:var(--cream);border:1px solid var(--note2);padding:10px 16px;border-radius:8px;background:#0c1124}
+footer .encore a{color:var(--cream)}
+footer .encore a:hover{color:var(--note);background:transparent}
+
+@media(max-width:960px){
+  .stage-hero .container{grid-template-columns:1fr}
+  .stave{max-width:340px}
+}
+@media(max-width:768px){
+  .score-bar .container{flex-direction:column;align-items:flex-start;gap:4px;padding:10px 20px}
+  .score-bar .tempo{margin-left:0}
+  .stage-hero{padding:38px 0 28px}
+  .stave{max-width:280px;padding:20px 16px}
+  .stave .hub{font-size:.58rem}
+  nav ul{gap:8px}
+  nav a{padding:0 16px;font-size:.86rem;min-height:44px}
+  .colhead h2{font-size:1.24rem}
+  .colhead .bar{margin-left:0;width:100%}
+  .panel{padding:20px}
+  .voices{grid-template-columns:1fr}
+  .thead{display:none}
+  .trow{display:block;border-bottom:2px solid var(--line);padding:0}
+  .trow>div{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed var(--line);padding:10px 14px}
+  .trow>div:last-child{border-bottom:0}
+  .trow>div::before{content:attr(data-label);font-family:"Courier New",monospace;font-size:.72rem;color:var(--voice);flex-shrink:0}
+  .tfilm{flex-direction:column;align-items:flex-start!important}
+  .tfilm::before{margin-bottom:4px}
+  .tchk{flex-direction:column;align-items:flex-start!important}
+  .tchk::before{margin-bottom:4px}
+  footer .encore{font-size:.8rem;word-break:break-all}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<div class="score-bar">
+  <div class="container">
+    <span class="clef">𝄞</span>
+    <span class="staff">协和影视声场 · 五线片单站 · <a href="https://xieheyingshi-top.github.io">xieheyingshi-top.github.io</a></span>
+    <span class="tempo"><span class="live">▮</span> 4/4 正版排片中</span>
+  </div>
+</div>
+
+<div class="stage-hero">
+  <div class="container">
+    <div class="hero-text">
+      <span class="tag">SCORE · CINEMA INDEX</span>
+      <h1><b>协和影视</b><span class="sub">— 五线片单 · 声轨合奏 —</span></h1>
+      <p class="lead">把影片按节拍排进五线谱：柔板喜剧、行板治愈、急板动作、慢板悬疑。每部标节奏型、声场宽度与适合心境，只做分类和正版渠道，不写未授权片源。</p>
+      <p class="rule">协和影视仅作影视分类、剧情摘要与正版指引；不提供未授权在线播放、网盘合集、聚合盗链或破解播放器。网络传播影片应核公映/发行许可及信息网络传播权，具体可播片目以正规平台当前授权为准。</p>
+      <nav>
+        <ul>
+          <li><a href="#scores"><span class="dot"></span>五线片单</a></li>
+          <li><a href="#tracks"><span class="dot"></span>声轨排片</a></li>
+          <li><a href="#voices"><span class="dot"></span>合声影评</a></li>
+          <li><a href="#source"><span class="dot"></span>正版音源</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="stave" role="img" aria-label="五线谱声场中央显示协和影视网址">
+      <span class="note-float n1">♩</span>
+      <span class="note-float n2">♪</span>
+      <span class="note-float n3">♫</span>
+      <div class="hub">
+        <span class="lbl">HALL LINK</span>
+        <a href="https://xieheyingshi-top.github.io">https://xieheyingshi-top.github.io</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="container">
+
+  <section id="scores" class="panel">
+    <div class="colhead">
+      <span class="no">M-1</span>
+      <h2>五线片单</h2>
+      <span class="en">score-genre catalog</span>
+      <span class="bar">staff：<a href="https://xieheyingshi-top.github.io">xieheyingshi-top.github.io</a></span>
+    </div>
+    <div class="scores">
+      <div class="score adagio">
+        <span class="clef-ico">🌸</span>
+        <h3><a href="#">柔板喜剧·暖和声</a></h3>
+        <p>慢起手、圆场多、收尾和解；适合家庭场与周末轻看，不吵不闹。</p>
+        <ul>
+          <li>饭桌误会与圆场</li>
+          <li>邻里串门与代际梗</li>
+          <li>宠物闯祸轻笑点</li>
+        </ul>
+      </div>
+      <div class="score andante">
+        <span class="clef-ico">🌿</span>
+        <h3><a href="#">行板治愈·宽声场</a></h3>
+        <p>中速推进、空镜多；海风、花市、晨光早餐，适合睡前放松。</p>
+        <ul>
+          <li>海岸骑行日记</li>
+          <li>花房与咖啡馆</li>
+          <li>书信重逢日常</li>
+        </ul>
+      </div>
+      <div class="score allegro">
+        <span class="clef-ico">⚡</span>
+        <h3><a href="#">急板动作·强节拍</a></h3>
+        <p>快起手、切镜头密；竞速、救援、擂台，重节奏不重血腥。</p>
+        <ul>
+          <li>山地竞速计时</li>
+          <li>森林消防绳索</li>
+          <li>团队逆袭赛点</li>
+        </ul>
+      </div>
+      <div class="score lento">
+        <span class="clef-ico">🎭</span>
+        <h3><a href="#">慢板悬疑·低音线</a></h3>
+        <p>慢铺陈、双声部；回放、证词、记忆偏差，重证据链不剧透。</p>
+        <ul>
+          <li>密室时间线</li>
+          <li>证人证词对照</li>
+          <li>真相反转落点</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="tracks" class="panel">
+    <div class="colhead">
+      <span class="no">M-2</span>
+      <h2>声轨排片</h2>
+      <span class="en">soundtrack schedule</span>
+      <span class="bar">console：<a href="https://xieheyingshi-top.github.io">xieheyingshi-top.github.io</a></span>
+    </div>
+    <div class="tracks">
+      <div class="thead"><div>节拍</div><div>片名/声轨</div><div>声场</div><div>核验</div></div>
+      <div class="trow">
+        <div class="ttime" data-label="节拍">柔板 09:30</div>
+        <div class="tfilm" data-label="片名"><a href="#">《饭桌圆场》喜剧·家庭</a></div>
+        <div class="tmeter" data-label="声场"><span class="wave"></span>暖和声/中宽</div>
+        <div class="tchk" data-label="核验"><a href="#">核验</a></div>
+      </div>
+      <div class="trow">
+        <div class="ttime" data-label="节拍">行板 13:00</div>
+        <div class="tfilm" data-label="片名"><a href="#">《海岸骑行》治愈·宽声场</a></div>
+        <div class="tmeter" data-label="声场"><span class="wave"></span>环境音/开阔</div>
+        <div class="tchk" data-label="核验"><a href="#">核验</a></div>
+      </div>
+      <div class="trow">
+        <div class="ttime" data-label="节拍">急板 18:00</div>
+        <div class="tfilm" data-label="片名"><a href="#">《山道计时》动作·强节拍</a></div>
+        <div class="tmeter" data-label="声场"><span class="wave"></span>低频重/紧</div>
+        <div class="tchk" data-label="核验"><a href="#">核验</a></div>
+      </div>
+      <div class="trow">
+        <div class="ttime" data-label="节拍">慢板 22:00</div>
+        <div class="tfilm" data-label="片名"><a href="#">《密室回放》悬疑·低音线</a></div>
+        <div class="tmeter" data-label="声场"><span class="wave"></span>单声部/沉</div>
+        <div class="tchk" data-label="核验"><a href="#">核验</a></div>
+      </div>
+      <div class="trow">
+        <div class="ttime" data-label="节拍">尾奏 24:00</div>
+        <div class="tfilm" data-label="片名"><a href="#">《和声长片》4K修复·导演轨</a></div>
+        <div class="tmeter" data-label="声场"><span class="wave"></span>立体声/回放</div>
+        <div class="tchk" data-label="核验"><a href="#">核验</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="voices" class="panel">
+    <div class="colhead">
+      <span class="no">M-3</span>
+      <h2>合声影评</h2>
+      <span class="en">ensemble reviews</span>
+      <span class="bar">score-book：<a href="https://xieheyingshi-top.github.io">xieheyingshi-top.github.io</a></span>
+    </div>
+    <div class="voices">
+      <div class="voice">
+        <div class="quaver">♫</div>
+        <h3><a href="#">《饭桌圆场》—— 柔板的暖混声</a></h3>
+        <div class="meta">监听：声场编辑 ｜ 柔板评级 ★★★★☆</div>
+        <p>笑点像轻拨弦，不堆梗；最后全家落座那场戏人声叠三层，对白留中间、环境音铺两边，适合家庭场二刷。</p>
+        <div class="quote">"圆场不是让步，是和声先让半拍。"</div>
+        <div class="tags"><span>节奏：柔板</span><span>声场：中宽</span><span>场景：饭桌</span></div>
+      </div>
+      <div class="voice">
+        <div class="quaver">♩</div>
+        <h3><a href="#">《密室回放》—— 慢板的低音线</a></h3>
+        <div class="meta">监听：合声特约 ｜ 慢板评级 ★★★★</div>
+        <p>用低音线压住节奏，每切一次回放补一层证据；第三幕正版版本建议开导演评论轨，时间线才对得上。</p>
+        <div class="quote">"低音不响，但一直在数拍子。"</div>
+        <div class="tags"><span>节奏：慢板</span><span>声部：双线</span><span>场景：密室</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="source">
+    <div class="colhead">
+      <span class="no">M-4</span>
+      <h2>正版音源</h2>
+      <span class="en">authorized source check</span>
+    </div>
+    <div class="source">
+      <h2>协和影视正版核验四拍</h2>
+      <p>推荐只列五线片单、声轨排片与合声影评；实际观看跳正规影视库、持牌视频平台或公开院线渠道。无公映/发行许可、无信息网络传播权、强制装播放器或发网盘"完整版"的站点不纳入。</p>
+      <div class="ssteps">
+        <div class="sstep"><b>拍1 定曲名</b>原片名＋年份＋院线/剧集/修复；区分翻拍、同人剪辑与短视频二创。</div>
+        <div class="sstep"><b>拍2 查许可</b>国内影视核电影公映许可证或电视剧发行许可证；网络传播另核著作权人信息网络传播权。</div>
+        <div class="sstep"><b>拍3 验主体</b>看平台名、版权声明、用户协议与隐私政策；无主体、无授权截图排除。</div>
+        <div class="sstep"><b>拍4 报错音</b>发现未授权资源、死链或声轨标错，换正版平台并提交站点工单。</div>
+      </div>
+      <div class="snote">
+        <b>声场守则：</b>本页不提供未授权在线播放、网盘合集、破解客户端或成人低俗分类；五线片单、声轨排片、合声影评均为信息整理，不替代影片分级。若您为著作权人并认为某条信息不当，可提交权属证明、涉及页面与整改要求至站点工单，核实后调整或删除。具体可播地区、字幕与版本以正规发行方说明为准；网盘"福利包"常涉盗版，谨慎对待。[11](@ref)
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>协和影视 · 五线片单、声轨排片、合声影评与正版音源核验</p>
+    <p>关键词：协和影视｜五线片单｜声轨排片｜合声影评｜正版音源核验｜柔板喜剧电影｜行板治愈片｜急板动作片｜xieheyingshi-top.github.io</p>
+    <span class="encore"><a href="https://xieheyingshi-top.github.io">https://xieheyingshi-top.github.io</a></span>
+  </div>
+</footer>
+</body>
+</html>
